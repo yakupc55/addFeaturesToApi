@@ -13,6 +13,7 @@ const LM_STUDIO_URL = 'http://localhost:1234/v1/chat/completions';
 const MESSAGES_FILE = path.join(__dirname, 'smartWindows-smartCalculate');
 
 function getPrependMessages() {
+    
   try {
     const rawData = fs.readFileSync(MESSAGES_FILE);
     const data = JSON.parse(rawData);

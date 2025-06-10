@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const LM_STUDIO_URL = 'http://localhost:1234/v1/chat/completions';
-const MESSAGES_FILE = path.join(__dirname, 'smartWindows-smartCalculate.json');
+const MESSAGES_FILE = path.join(__dirname, 'smartWindows-smartCalculate2.json');
 
 function getPrependMessages() {
 

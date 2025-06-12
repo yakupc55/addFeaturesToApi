@@ -1,20 +1,13 @@
 // JavaScript nesnesi
 const jsObject = {
-  title: "İngilizce-Türkçe Kelime Testi",
+ title: "İngilizce-Türkçe Kelime Testi",
   type: "word",
-  questions: [
-    {
-      question: "apple",
-      options: ["elma", "armut", "portakal", "muz"],
-      answer: "elma",
-      explanation: "Apple İngilizcede elma demektir."
-    },
-    {
-      question: "book",
-      options: ["kalem", "defter", "kitap", "silgi"],
-      answer: "kitap",
-      explanation: "Book İngilizcede kitap demektir."
-    }
+  wordPairs: [
+    { word: "apple", translation: "elma" },
+    { word: "book", translation: "kitap" },
+    { word: "pen", translation: "kalem" },
+    { word: "orange", translation: "portakal" },
+    { word: "banana", translation: "muz" }
   ]
 };
 
@@ -96,12 +89,12 @@ const data1 = JSON.parse(jsonString);
 // JSON string'ini yazdırma
 //console.log(data1.title);
 let data3 = 4.0;
-console.log("data 1 type",typeof data1);
-console.log("data 1 array:",Array.isArray(data1));
+// console.log("data 1 type",typeof data1);
+// console.log("data 1 array:",Array.isArray(data1));
 
-console.log("data 2 type",typeof data2);
-console.log("data 2 array:",Array.isArray(data2));
-console.log("data 3 type",typeof data3);
+// console.log("data 2 type",typeof data2);
+// console.log("data 2 array:",Array.isArray(data2));
+// console.log("data 3 type",typeof data3);
 
 console.log(Object.keys(data1));
 console.log("split",joinDataToEmojiText(data1,0));

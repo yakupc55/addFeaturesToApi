@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON File Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .file-selector {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        select, button {
+            padding: 8px 12px;
+            font-size: 16px;
+        }
+        select {
+            min-width: 300px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JSON File Selector</h1>
+        
+        <div class="file-selector">
+            <select id="jsonFiles">
+                <option value="">Loading JSON files...</option>
+            </select>
+            <button id="setFileBtn">Set as Active File</button>
+            <button id="refreshBtn">Refresh List</button>
+        </div>
+        
+        <div>
+            <h3>Current Active File:</h3>
+            <p id="currentFile">Loading...</p>
+        </div>
+        
+        <div id="statusMessage" class="status" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const jsonFilesSelect = document.getElementById('jsonFiles');
+            const setFileBtn = document.getElementById('setFileBtn');
+            const refreshBtn = document.getElementById('refreshBtn');
+            const currentFileEl = document.getElementById('currentFile');
+            const statusMessageEl = document.getElementById('statusMessage');
+            
+            // JSON dosya listesini getir
+            async function fetchJsonFiles() {
+                try {
+                    jsonFilesSelect.innerHTML = '<option value="">Loading...</option>';
+                    
+                    const response = await fetch('/api/list-json-files');
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    
+                    const data = await response.json();
+                    
+                    if (data.files && data.files.length > 0) {
+                        jsonFilesSelect.innerHTML = '<option value="">Select a JSON file</option>';
+                        data.files.forEach(file => {
+                            const option = document.createElement('option');
+                            option.value = file.filename;
+                            option.textContent = file.filename;
+                            jsonFilesSelect.appendChild(option);
+                        });
+                        
+                        // Mevcut aktif dosyayı seçili hale getir
+                        await updateCurrentFileDisplay();
+                    } else {
+                        jsonFilesSelect.innerHTML = '<option value="">No JSON files found</option>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching JSON files:', error);
+                    showStatus('Error fetching JSON files', 'error');
+                    jsonFilesSelect.innerHTML = '<option value="">Error loading files</option>';
+                }
+            }
+            
+            // Aktif dosyayı güncelle ve göster
+            async function updateCurrentFileDisplay() {
+                try {
+                    const response = await fetch('/api/get-current-file');
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    
+                    const data = await response.json();
+                    if (data.filename) {
+                        currentFileEl.textContent = data.filename;
+                        
+                        // Dropdown'da seçili hale getir
+                        const options = jsonFilesSelect.options;
+                        for (let i = 0; i < options.length; i++) {
+                            if (options[i].value === data.filename) {
+                                options[i].selected = true;
+                                break;
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error getting current file:', error);
+                    currentFileEl.textContent = 'Error getting current file';
+                }
+            }
+            
+            // Dosyayı aktif olarak ayarla
+            async function setActiveFile() {
+                const selectedFile = jsonFilesSelect.value;
+                if (!selectedFile) {
+                    showStatus('Please select a file first', 'error');
+                    return;
+                }
+                
+                try {
+                    const response = await fetch('/api/set-messages-file', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ filename: selectedFile })
+                    });
+                    
+                    const data = await response.json();
+                    if (data.success) {
+                        currentFileEl.textContent = selectedFile;
+                        showStatus(`Successfully set active file to ${selectedFile}`, 'success');
+                    } else {
+                        showStatus(data.error || 'Failed to set file', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error setting file:', error);
+                    showStatus('Error setting file', 'error');
+                }
+            }
+            
+            // Durum mesajını göster
+            function showStatus(message, type) {
+                statusMessageEl.textContent = message;
+                statusMessageEl.className = 'status ' + type;
+                statusMessageEl.style.display = 'block';
+                
+                setTimeout(() => {
+                    statusMessageEl.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Event listeners
+            setFileBtn.addEventListener('click', setActiveFile);
+            refreshBtn.addEventListener('click', fetchJsonFiles);
+            
+            // Initialize
+            fetchJsonFiles();
+        });
+    </script>
+</body>
+</html>

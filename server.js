@@ -8,14 +8,14 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static('public')); // public klasörünü statik dosyalar için kullan
+const jsonFileDir = "jsonFiles/";
 const LM_STUDIO_URL = 'http://localhost:1234/v1/chat/completions';
-const MESSAGES_FILE = path.join(__dirname, 'smartWindows-smartCalculate3.json');
+let CURRENT_MESSAGES_FILE = path.join(__dirname, 'smartWindows-smartCalculate3.json'); // Varsayılan dosya
 
 function getPrependMessages() {
-
   try {
-    const rawData = fs.readFileSync(MESSAGES_FILE);
+    const rawData = fs.readFileSync(CURRENT_MESSAGES_FILE);
     const data = JSON.parse(rawData);
     return data.prepend_messages || [];
   } catch (error) {
@@ -29,7 +29,6 @@ app.post('/api/chat', async (req, res) => {
     const userMessages = req.body.messages || [];
     const prependMessages = getPrependMessages();
     
-    // JSON'dan okunan mesajları kullanıcı mesajlarının önüne ekle
     const combinedMessages = [...prependMessages, ...userMessages];
     
     const response = await axios.post(LM_STUDIO_URL, {
@@ -54,7 +53,7 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Mesajları güncellemek için yeni endpoint
+// Mesajları güncellemek için endpoint
 app.post('/api/update-messages', express.json(), (req, res) => {
   try {
     const newMessages = req.body.messages;
@@ -63,7 +62,7 @@ app.post('/api/update-messages', express.json(), (req, res) => {
     }
 
     const data = { prepend_messages: newMessages };
-    fs.writeFileSync(MESSAGES_FILE, JSON.stringify(data, null, 2));
+    fs.writeFileSync(CURRENT_MESSAGES_FILE, JSON.stringify(data, null, 2));
     res.json({ success: true, message: 'Messages updated successfully' });
   } catch (error) {
     console.error('Error updating messages:', error);
@@ -82,6 +81,52 @@ app.get('/api/get-messages', (req, res) => {
   }
 });
 
+// JSON dosyasını değiştirmek için yeni endpoint
+app.post('/api/set-messages-file', express.json(), (req, res) => {
+  try {
+    const newFileName = req.body.filename;
+    if (!newFileName) {
+      return res.status(400).json({ error: 'Filename is required' });
+    }
+
+    const newFilePath = path.join(jsonFileDir , newFileName);
+    if (!fs.existsSync(newFilePath)) {
+      return res.status(404).json({ error: 'File not found' });
+    }
+
+    CURRENT_MESSAGES_FILE = newFilePath;
+    res.json({ success: true, message: `Messages file set to ${newFileName}` });
+  } catch (error) {
+    console.error('Error changing messages file:', error);
+    res.status(500).json({ error: 'Failed to change messages file' });
+  }
+});
+// JSON dosyalarını listeleme endpointi
+app.get('/api/list-json-files', (req, res) => {
+  try {
+    const files = fs.readdirSync(jsonFileDir )
+      .filter(file => file.endsWith('.json'))
+      .map(file => ({
+        filename: file,
+        path: path.join(__dirname, file)
+      }));
+    
+    res.json({ files });
+  } catch (error) {
+    console.error('Error listing JSON files:', error);
+    res.status(500).json({ error: 'Failed to list JSON files' });
+  }
+});
+// Mevcut JSON dosyasını getirmek için endpoint
+app.get('/api/get-current-file', (req, res) => {
+  try {
+    res.json({ filename: path.basename(CURRENT_MESSAGES_FILE) });
+  } catch (error) {
+    console.error('Error getting current file:', error);
+    res.status(500).json({ error: 'Failed to get current file' });
+  }
+});
+app.use(express.static('public')); 
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`API server running on http://localhost:${PORT}`);

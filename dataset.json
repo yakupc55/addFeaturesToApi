@@ -71,20 +71,8 @@
     },
     {
       "from": "gpt",
-      "value": "Tabii ki! İşte size İngilizce-Türkçe kelime testi içeren bir quiz penceresi:  🛠️smart-window🧲quiz🧲title🌟İngilizce-Türkçe Kelime Testi🚀type🌟word🚀questions🌟question🛢️apple⚡options🛢️elma🛢️armut🛢️portakal🛢️muz⚡answer🛢️elma⚡explanation🛢️Apple İngilizcede elma demektir.🌟question🛢️book⚡options🛢️kalem🛢️defter🛢️kitap🛢️silgi⚡answer🛢️kitap⚡explanation🛢️Book İngilizcede kitap demektir.🛠️"
+      "value": "Tabii ki! İşte size İngilizce-Türkçe kelime testi içeren bir quiz penceresi:  🛠️smart-window🧲quiz🧲title🌟İngilizce-Türkçe Kelime Testi🚀type🌟word🚀wordPairs🌟word🛢️apple⚡translation🛢️elma🌟word🛢️book⚡translation🛢️kitap🌟word🛢️pen⚡translation🛢️kalem🌟word🛢️orange⚡translation🛢️portakal🌟word🛢️banana⚡translation🛢️muz🛠️"
     }
-  ]
-},
-{
-  "conversations": [
-    {
-      "from": "human",
-      "value": "Türkçe-Hollandaca kelime testi oluşturabilir misin? Akıllı pencere sistemi ile oluştur."
-    },
-    {
-  "from": "gpt",
-  "value": "Tabii ki! İşte size Türkçe-Hollandaca kelime testi içeren bir quiz penceresi: 🛠️smart-window🧲quiz🧲title🌟Türkçe-Hollandaca Kelime Testi🚀type🌟word🚀questions🌟question🛢️elma⚡options🛢️appel🛢️peer🛢️sinaasappel🛢️banaan⚡answer🛢️appel⚡explanation🛢️Elma Hollandaca appel demektir.🌟question🛢️kitap⚡options🛢️pen🛢️boek🛢️stoel🛢️raam⚡answer🛢️boek⚡explanation🛢️Kitap Hollandaca boek demektir.🛠️"
-}
   ]
 },
 {

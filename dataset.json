@@ -86,5 +86,16 @@
   "value": "Elbette! İşte size genel kültür testi içeren bir quiz penceresi: 🛠️smart-window🧲quiz🧲title🌟Genel Kültür Testi🚀type🌟knowledge🚀questions🌟question🛢️Türkiye'nin başkenti neresidir?⚡options🛢️İstanbul🛢️Ankara🛢️İzmir🛢️Bursa⚡answer🛢️1⚡explanation🛢️Türkiye'nin başkenti 1923'ten beri Ankara'dır.🌟question🛢️Hangi gezegen Güneş sistemindeki en büyük gezegendir?⚡options🛢️Dünya🛢️Mars🛢️Jüpiter🛢️Satürn⚡answer🛢️2⚡explanation🛢️Jüpiter hem en büyük hem de en ağır gezegendir.🛠️"
 }
   ]
+},{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "Türkçe-İngilizce cümle oluşturma pratiği yapabileceğim bir pencere açabilir misin? Akıllı pencere sistemini kullan."
+    },
+    {
+      "from": "gpt",
+      "value": "Elbette! İşte size cümle oluşturma pratiği yapabileceğiniz bir pencere: 🛠️smart-window🧲sentence-builder🧲title🌟Cümle Oluşturma Pratiği🚀sentences🌟turkish🛢️Bu bir elmadır.⚡english🛢️This is an apple.🌟turkish🛢️Kitap masanın üzerindedir.⚡english🛢️The book is on the table.🌟turkish🛢️Benim bir kalemim var.⚡english🛢️I have a pen.🌟turkish🛢️Portakal suyu severim.⚡english🛢️I like orange juice.🌟turkish🛢️Nasılsın?⚡english🛢️How are you?🌟turkish🛢️Hava güzel.⚡english🛢️The weather is nice.🛠️"
+    }
+  ]
 }
 ]

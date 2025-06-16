@@ -97,5 +97,33 @@
       "value": "Elbette! İşte size cümle oluşturma pratiği yapabileceğiniz bir pencere: 🛠️smart-window🧲sentence-builder🧲title🌟Cümle Oluşturma Pratiği🚀sentences🌟turkish🛢️Bu bir elmadır.⚡english🛢️This is an apple.🌟turkish🛢️Kitap masanın üzerindedir.⚡english🛢️The book is on the table.🌟turkish🛢️Benim bir kalemim var.⚡english🛢️I have a pen.🌟turkish🛢️Portakal suyu severim.⚡english🛢️I like orange juice.🌟turkish🛢️Nasılsın?⚡english🛢️How are you?🌟turkish🛢️Hava güzel.⚡english🛢️The weather is nice.🛠️"
     }
   ]
+},
+{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "Bana akıllı kontrol paneli üzerinden kullanılabilir uygulamaları listele"
+    },
+    {
+      "from": "gpt",
+      "value": "Elbette! İşte akıllı kontrol paneli penceresi: 🛠️smart-window🧲smart-control🧲title🌟Akıllı Kontrol Paneli🚀type🌟showList🛠️"
+    }
+  ]
+},
+{
+  "conversations": [
+    {
+      "from": "gpt",
+      "value": "🛠️smart-window🧲hide-data🧲title🌟içe aktarılan yapılandırma mesajları🚀\nFile Manager App\nDizin İçeriğini Listeleme (listDirectory)\nClient'ın yönettiği dizindeki tüm dosya ve klasörleri listeler.\nParametreler: (Yok)\nÖrnek JSON Komutu:\n{'action': 'listDirectory'}"
+    },
+    {
+      "from": "human",
+      "value": "Dosya Yöneticisi uygulamasını kullanarak dosyaları listele."
+    },
+    {
+      "from": "gpt",
+      "value": "Harika! İşte Dosya Yöneticisi uygulaması için işlem kodu: 🛠️smart-window🧲smart-control🧲title🌟Akıllı Kontrol Paneli🚀type🌟operation🚀app🌟File Manager App🚀code🌟{'action': 'listDirectory'}🛠️"
+    }
+  ]
 }
 ]

@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static('public')); // public klasörünü statik dosyalar için kullan
 const jsonFileDir = "jsonFiles/";
 const LM_STUDIO_URL = 'http://localhost:1234/v1/chat/completions';
-let CURRENT_MESSAGES_FILE = path.join(jsonFileDir, 'smartWindows-smartCalculate3.json'); // Varsayılan dosya
+let CURRENT_MESSAGES_FILE = path.join(jsonFileDir, 'smartWindows-smartCalculate4.json'); // Varsayılan dosya
 
 function getPrependMessages() {
   try {

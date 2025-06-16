@@ -122,7 +122,47 @@
     },
     {
       "from": "gpt",
-      "value": "Harika! İşte Dosya Yöneticisi uygulaması için işlem kodu: 🛠️smart-window🧲smart-control🧲title🌟Akıllı Kontrol Paneli🚀type🌟operation🚀app🌟File Manager App🚀code🌟{'action': 'listDirectory'}🛠️"
+      "value": "Harika! İşte Dosya Yöneticisi uygulaması için işlem kodu: 🛠️smart-window🧲smart-control🧲title🌟Akıllı Kontrol Paneli🚀type🌟operation🚀app🌟File Manager App🚀code🌟{'action': 'listDirectory'}🛠️ kodu çalıştırınca sonuçları göreceksiniz"
+    }
+  ]
+},
+{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "List the applications that can be used through the smart control panel"
+    },
+    {
+      "from": "gpt",
+      "value": "Of course! Here is the smart control panel window: 🛠️smart-window🧲smart-control🧲title🌟Smart Control Panel🚀type🌟showList🛠️"
+    }
+  ]
+},
+{
+  "conversations": [
+    {
+      "from": "gpt",
+      "value": "🛠️smart-window🧲hide-data🧲title🌟Imported Configuration Messages🚀\nFile Manager App\nList Directory Contents (listDirectory)\nLists all files and folders in the directory managed by the client.\nParameters: (None)\nExample JSON Command:\n{'action': 'listDirectory'}"
+    },
+    {
+      "from": "human",
+      "value": "List the files using the File Manager application."
+    },
+    {
+      "from": "gpt",
+      "value": "Great! Here is the operation code for the File Manager app: 🛠️smart-window🧲smart-control🧲title🌟Smart Control Panel🚀type🌟operation🚀app🌟File Manager App🚀code🌟{'action': 'listDirectory'}🛠️run the code and you will see the results"
+    }
+  ]
+},
+{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "List the files using the File Manager application."
+    },
+    {
+      "from": "gpt",
+      "value": "Great! Here is the operation code for the File Manager app: 🛠️smart-window🧲smart-control🧲title🌟Smart Control Panel🚀type🌟operation🚀app🌟File Manager App🚀code🌟{'action': 'listDirectory'}🛠️run the code and you will see the results"
     }
   ]
 }

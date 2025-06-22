@@ -165,5 +165,41 @@
       "value": "Great! Here is the operation code for the File Manager app: 🛠️smart-window🧲smart-control🧲title🌟Smart Control Panel🚀type🌟operation🚀app🌟File Manager App🚀code🌟{'action': 'listDirectory'}🛠️run the code and you will see the results"
     }
   ]
+},
+{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "Bana akıllı ekranları kullanarak birlikte aktivite yapısı sun online oyun için, akıllı aktiviteleri aç, akıllı birlikte yapısını aç, online oyun penceresini aç."
+    },
+    {
+      "from": "gpt",
+      "value": "🛠️smart-window🧲smart-together🧲game🌟lobby🛠️"
+    }
+  ]
+},
+{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "İngilizce-Türkçe kelime testi oluşturabilir misin? Akılla pencere sistemi ile oluştur. online sistem olsun. birlikte aktivite yapısını kullan, online oyun penceresi üzerinden sun."
+    },
+    {
+      "from": "gpt",
+      "value": "🛠️smart-window🧲smart-together🧲game🌟quiz🚀title🌟İngilizce-Türkçe Kelime Testi🚀type🌟word🚀wordPairs🌟word🛢️apple⚡translation🛢️elma🌟word🛢️book⚡translation🛢️kitap🌟word🛢️pen⚡translation🛢️kalem🌟word🛢️orange⚡translation🛢️portakal🌟word🛢️banana⚡translation🛢️muz🛠️"
+    }
+  ]
+},
+{
+  "conversations": [
+    {
+      "from": "human",
+      "value": "genel kültürle ilgili bir test oluşturabilir misin? Sorular bilgiye dayalı olsun. Akılla pencere sistemi ile oluştur. online sistem olsun. birlikte aktivite yapısını kullan, online oyun penceresi üzerinden sun."
+    },
+    {
+      "from": "gpt",
+      "value": "🛠️smart-window🧲smart-together🧲game🌟quiz🚀title🌟Genel Kültür Testi🚀type🌟knowledge🚀questions🌟question🛢️Türkiye'nin başkenti neresidir?⚡options🛢️İstanbul🛢️Ankara🛢️İzmir🛢️Bursa⚡answer🛢️1⚡explanation🛢️Türkiye'nin başkenti 1923'ten beri Ankara'dır.🌟question🛢️Hangi gezegen Güneş sistemindeki en büyük gezegendir?⚡options🛢️Dünya🛢️Mars🛢️Jüpiter🛢️Satürn⚡answer🛢️2⚡explanation🛢️Jüpiter hem en büyük hem de en ağır gezegendir.🛠️"
+    }
+  ]
 }
 ]
